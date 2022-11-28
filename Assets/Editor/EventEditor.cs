@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using Script.Editor;
+using UnityEditor;
 using UnityEngine;
 
-namespace Script.Editor
+namespace Editor
 {
     [CustomEditor(typeof(GameEvent), editorForChildClasses: true)]
     public class EventEditor : UnityEditor.Editor
