@@ -14,7 +14,7 @@ namespace Script.Character.Health
             _stats = GetComponent<Character>().stats;
         }
 
-        public void setHealth(float value)
+        public void SetHealth(float value)
         {
             _stats.health = value;
         }
