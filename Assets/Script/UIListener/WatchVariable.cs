@@ -19,9 +19,9 @@ namespace Script.UIListener
             characterStats.health.Subscribe(h => _textMeshPro.text = h.ToString(CultureInfo.InvariantCulture));
         }
 
-        // private void OnDisable()
-        // {
-        //     characterStats.health.Dispose();
-        // }
+        private void OnDisable()
+        {
+            characterStats.health.Dispose();
+        }
     }
 }
