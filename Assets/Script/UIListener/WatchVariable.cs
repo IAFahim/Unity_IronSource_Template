@@ -16,12 +16,12 @@ namespace Script.UIListener
         {
             _textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
             Debug.Log(_textMeshPro.text);
-            characterStats.H.Subscribe(h => _textMeshPro.text = h.ToString(CultureInfo.InvariantCulture));
+            characterStats.rHaelth.Subscribe(h => _textMeshPro.text = h.ToString(CultureInfo.InvariantCulture));
         }
 
         private void OnDisable()
         {
-            characterStats.H.Dispose();
+            characterStats.rHaelth.Dispose();
         }
     }
 }

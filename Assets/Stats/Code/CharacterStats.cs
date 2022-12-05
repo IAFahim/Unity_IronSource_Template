@@ -1,24 +1,21 @@
 ﻿using UniRx;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 namespace Stats.Code
 {
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "CharacterStats", order = 0)]
+    
     public class CharacterStats : ScriptableObject
     {
-        public Customer customer;
-        public float Health = 100;
-        [HideInInspector] public ReactiveProperty<float> H;
+        public float Health { get; set; }
+        
+        public ReactiveProperty<float> rHaelth;
 
         private void OnEnable()
         {
-
-            customer = new Customer
-            {
-                Email = "10"
-            };
-            H = new FloatReactiveProperty(Health);
-            H.Subscribe(h => { Health = H.Value; });
+            rHaelth = new FloatReactiveProperty(Health);
+            rHaelth.Subscribe(h => { Health = rHaelth.Value; });
         }
     }
 }
