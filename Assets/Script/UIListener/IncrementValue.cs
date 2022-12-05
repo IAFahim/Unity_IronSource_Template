@@ -1,7 +1,6 @@
-﻿using System;
-using Script.DB;
+﻿using Script.DB;
+using Stats.Code;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Script.UIListener
 {

@@ -1,9 +1,13 @@
 ﻿using System;
-using System.Globalization;
+using System.Collections;
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Script.DB;
+using SQLite;
 using UniRx;
 using UnityEngine;
 
-namespace Script.DB
+namespace Stats.Code
 {
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "CharacterStats", order = 0)]
     public class CharacterStats : ScriptableObject

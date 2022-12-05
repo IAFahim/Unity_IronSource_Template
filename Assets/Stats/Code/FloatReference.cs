@@ -1,9 +1,7 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
-using UnityEditor;
+using Script.DB;
 
-namespace Script.DB
+namespace Stats.Code
 {
     [Serializable]
     public class FloatReference
