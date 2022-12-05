@@ -16,7 +16,7 @@ namespace Script.Character.Health
 
         public void SetHealth(float value)
         {
-            _stats.health = value;
+            
         }
     }
 }
