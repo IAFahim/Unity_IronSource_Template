@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using Script.DB;
-using SQLite;
-using UniRx;
+﻿using UniRx;
 using UnityEngine;
 
 namespace Stats.Code
@@ -12,11 +6,19 @@ namespace Stats.Code
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "CharacterStats", order = 0)]
     public class CharacterStats : ScriptableObject
     {
-        public FloatReactiveProperty health;
+        public Customer customer;
+        public float Health = 100;
+        [HideInInspector] public ReactiveProperty<float> H;
 
         private void OnEnable()
         {
-            health = new FloatReactiveProperty(100);
+
+            customer = new Customer
+            {
+                Email = "10"
+            };
+            H = new FloatReactiveProperty(Health);
+            H.Subscribe(h => { Health = H.Value; });
         }
     }
 }

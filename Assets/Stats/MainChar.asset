@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca52dbf23364c0195a883ddb196dccb, type: 3}
   m_Name: MainChar
   m_EditorClassIdentifier: 
-  health:
-    value: 100
+  Name: hello
+  Health: 0
+  H:
+    value: 0
