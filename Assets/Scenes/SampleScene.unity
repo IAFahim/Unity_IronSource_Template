@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 3.61
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -207,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219788383}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 219788385}
+        m_TargetAssemblyTypeName: Script.UIListener.IncrementValue, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &219788383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +717,7 @@ GameObject:
   - component: {fileID: 1596712959}
   - component: {fileID: 1596712961}
   - component: {fileID: 1596712960}
+  - component: {fileID: 1596712962}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -829,6 +842,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596712958}
   m_CullTransparentMesh: 1
+--- !u!114 &1596712962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596712958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90a971e5a5c4afea5598e1a9106df5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
 --- !u!1 &1789602837
 GameObject:
   m_ObjectHideFlags: 0
