@@ -26,7 +26,7 @@ namespace Script.DB
         public async UniTaskVoid Start()
         {
             characterStatsArray[0].main = await Load<DefaultCharacterStats>(characterStatsArray[0].main.Pk);
-            characterStatsArray[0].main.Health = characterStatsArray[0].health.Value;
+            characterStatsArray[0].health.Value = characterStatsArray[0].main.Health;
         }
 
         private async UniTask Save<T>(T item) where T : new()
