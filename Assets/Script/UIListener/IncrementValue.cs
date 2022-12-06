@@ -10,7 +10,7 @@ namespace Script.UIListener
         
         public void OnClick()
         {
-            characterStats.rHaelth.Value += 1;
+            characterStats.health.Value += 1;
         }
     }
 }

@@ -1,21 +1,25 @@
-﻿using UniRx;
-using Unity.VisualScripting.Dependencies.Sqlite;
+﻿using System;
+using Stats.Code.Default;
+using UniRx;
 using UnityEngine;
 
 namespace Stats.Code
 {
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "CharacterStats", order = 0)]
-    
     public class CharacterStats : ScriptableObject
     {
-        public float Health { get; set; }
+        public MainCharacterStats main;
         
-        public ReactiveProperty<float> rHaelth;
-
+        [Header("Temp")]
+        public StringReactiveProperty characterName;
+        public FloatReactiveProperty health;
+        
         private void OnEnable()
         {
-            rHaelth = new FloatReactiveProperty(Health);
-            rHaelth.Subscribe(h => { Health = rHaelth.Value; });
+            characterName=new StringReactiveProperty(main.CharacterName);
+            health=new FloatReactiveProperty(main.Health);
         }
+        
+        
     }
 }

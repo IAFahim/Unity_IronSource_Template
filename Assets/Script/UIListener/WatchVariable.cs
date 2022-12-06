@@ -1,12 +1,11 @@
 ﻿using System.Globalization;
-using Script.DB;
 using Stats.Code;
 using TMPro;
 using UniRx;
 using UnityEngine;
 
 namespace Script.UIListener
-{ 
+{
     public class WatchVariable : MonoBehaviour
     {
         public CharacterStats characterStats;
@@ -16,12 +15,12 @@ namespace Script.UIListener
         {
             _textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
             Debug.Log(_textMeshPro.text);
-            characterStats.rHaelth.Subscribe(h => _textMeshPro.text = h.ToString(CultureInfo.InvariantCulture));
+            characterStats.health.Subscribe(health => _textMeshPro.text = health.ToString(CultureInfo.InvariantCulture));
         }
 
         private void OnDisable()
         {
-            characterStats.rHaelth.Dispose();
+            characterStats.health.Dispose();
         }
     }
 }
