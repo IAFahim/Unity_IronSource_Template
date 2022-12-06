@@ -11,28 +11,25 @@ namespace Script.DB
     public class SqlDB : MonoBehaviour
 
     {
-        public static SQLiteConnection DB;
-
+        private static SQLiteAsyncConnection _db;
         private void Awake()
         {
             DontDestroyOnLoad(this);
-            DB = new SQLiteConnection(Application.persistentDataPath + "/SqLite.DB");
+            var databasePath = Path.Combine(Application.persistentDataPath, "SqLite.DB");
+            _db = new SQLiteAsyncConnection(databasePath);
         }
 
         public CharacterStats[] characterStatsArray;
 
         public async UniTaskVoid Start()
         {
-            await AddCustomerAsync(characterStatsArray[0].main);
+            await Save(characterStatsArray[0].main);
         }
 
-        private async UniTask AddCustomerAsync(MainCharacterStats mainCharacterStats)
+        private async UniTask Save<T> (T item) where T : new()
         {
-            var databasePath = Path.Combine(Application.persistentDataPath, "SqLite.DB");
-            var db = new SQLiteAsyncConnection(databasePath);
-            
-            await db.CreateTableAsync<MainCharacterStats> ();
-            db.InsertOrReplaceAsync(mainCharacterStats);
+            await _db.CreateTableAsync<T>();
+            await _db.InsertOrReplaceAsync(item);
         }
         
     }
