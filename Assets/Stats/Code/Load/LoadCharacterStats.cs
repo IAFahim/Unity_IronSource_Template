@@ -11,6 +11,7 @@ namespace Stats.Code.Load
         public void Load()
         {
             characterStats.Load();
+            characterStats.TempToMain();
         }
         
         // public IEnumerator QueryAsync () => UniTask.ToCoroutine(async () => 

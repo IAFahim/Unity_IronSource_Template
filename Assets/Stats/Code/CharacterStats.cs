@@ -26,6 +26,11 @@ namespace Stats.Code
             this.main = await SqlDB.Load<DefaultCharacterStats>(this.main.Pk);
         }
 
+        public void TempToMain()
+        {
+            this.health.Value = this.main.Health;
+        }
+
         public async void Save()
         {
             await SqlDB.Save(this);

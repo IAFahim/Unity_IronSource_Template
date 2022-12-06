@@ -22,13 +22,7 @@ namespace Script.DB
         }
 
         public CharacterStats[] characterStatsArray;
-
-        public async UniTaskVoid Start()
-        {
-        }
-
         
-
         public static async UniTask Save<T>(T item) where T : new()
         {
             await _db.CreateTableAsync<T>();
