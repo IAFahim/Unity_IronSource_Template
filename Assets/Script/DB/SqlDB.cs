@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using SQLite;
 using Stats.Code;
 using Stats.Code.Default;
+using UniRx;
 using UnityEngine;
 
 namespace Script.DB
@@ -24,7 +25,8 @@ namespace Script.DB
 
         public async UniTaskVoid Start()
         {
-            await Load<DefaultCharacterStats>(characterStatsArray[0].main.Pk);
+            characterStatsArray[0].main = await Load<DefaultCharacterStats>(characterStatsArray[0].main.Pk);
+            characterStatsArray[0].main.Health = characterStatsArray[0].health.Value;
         }
 
         private async UniTask Save<T>(T item) where T : new()
@@ -33,10 +35,9 @@ namespace Script.DB
             await _db.InsertOrReplaceAsync(item);
         }
 
-        private async UniTask Load<T>(string pk) where T : new()
+        private async UniTask<T> Load<T>(string pk) where T : new()
         {
-            var data= await _db.GetAsync<T>(pk);
-            Debug.Log(data);
+            return await _db.GetAsync<T>(pk);
         }
     }
 }
