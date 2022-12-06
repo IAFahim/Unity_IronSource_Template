@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: MainChar
   m_EditorClassIdentifier: 
   main:
-    <CharacterName>k__BackingField: Sync
-    <Health>k__BackingField: 50
-    developerDescription: 
+    <Pk>k__BackingField: DefaultCharacterStats
+    <Health>k__BackingField: 0
   characterName:
-    value: Sync
+    value: 
   health:
-    value: 50
+    value: 0
