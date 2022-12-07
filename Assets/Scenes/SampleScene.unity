@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 430550085}
   - component: {fileID: 430550084}
   - component: {fileID: 430550083}
-  - component: {fileID: 430550086}
   m_Layer: 5
   m_Name: Load
   m_TagString: Untagged
@@ -504,10 +503,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 430550086}
-        m_TargetAssemblyTypeName: Stats.Code.Load.LoadCharacterStats, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: f101d3c0978c0de42b476e96932d2f22, type: 2}
+        m_TargetAssemblyTypeName: Script.DB.UIStore`1[[Stats.Code.Default.TestingData,
+          Assembly-CSharp
         m_MethodName: Load
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -554,19 +554,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430550080}
   m_CullTransparentMesh: 1
---- !u!114 &430550086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430550080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c247837ec94448a2b26b1acc24d76a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +920,6 @@ GameObject:
   - component: {fileID: 1132595203}
   - component: {fileID: 1132595202}
   - component: {fileID: 1132595201}
-  - component: {fileID: 1132595204}
   m_Layer: 5
   m_Name: Save
   m_TagString: Untagged
@@ -1006,8 +992,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1132595204}
-        m_TargetAssemblyTypeName: Stats.Code.Load.SaveCharacterStats, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: f101d3c0978c0de42b476e96932d2f22, type: 2}
+        m_TargetAssemblyTypeName: Script.DB.UIStore`1[[Stats.Code.Default.TestingData,
+          Assembly-CSharp
         m_MethodName: Save
         m_Mode: 1
         m_Arguments:
@@ -1056,19 +1043,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132595198}
   m_CullTransparentMesh: 1
---- !u!114 &1132595204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132595198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f1437f8e2c472baaa3337ecbf88ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
 --- !u!1 &1171011922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,10 +1809,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1596712958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90a971e5a5c4afea5598e1a9106df5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 62633be8c8b042708727410682ce9956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
+  testStore: {fileID: 11400000, guid: f101d3c0978c0de42b476e96932d2f22, type: 2}
 --- !u!1 &1789602837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,7 +1960,6 @@ GameObject:
   - component: {fileID: 1808482957}
   - component: {fileID: 1808482956}
   - component: {fileID: 1808482955}
-  - component: {fileID: 1808482954}
   m_Layer: 5
   m_Name: Commit
   m_TagString: Untagged
@@ -2015,19 +1988,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000013351, y: -778}
   m_SizeDelta: {x: 262.41, y: 88.758}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1808482954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808482952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f1437f8e2c472baaa3337ecbf88ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
 --- !u!114 &1808482955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,9 +2032,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1808482954}
-        m_TargetAssemblyTypeName: Stats.Code.Load.SaveCharacterStats, Assembly-CSharp
-        m_MethodName: Save
+      - m_Target: {fileID: 11400000, guid: f101d3c0978c0de42b476e96932d2f22, type: 2}
+        m_TargetAssemblyTypeName: Stats.Code.TestStore, Assembly-CSharp
+        m_MethodName: Commit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2339,5 +2299,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7d527fd11541fbbf3ff2c20b71c94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatsArray:
-  - {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}

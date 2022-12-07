@@ -20,15 +20,13 @@ namespace Script.DB
             DB = new SQLiteAsyncConnection(databasePath);
         }
 
-        public CharacterStats[] characterStatsArray;
-
         public static async UniTaskVoid Save<T>(T item) where T : new()
         {
             await DB.CreateTableAsync<T>();
             await DB.InsertOrReplaceAsync(item);
         }
 
-        public static async UniTask<T> Load<T>(string pk) where T : new()
+        public static async UniTask<T> Load<T>(object pk) where T : new()
         {
             return await DB.GetAsync<T>(pk);
         }
