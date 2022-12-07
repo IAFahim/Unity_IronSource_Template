@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Cysharp.Threading.Tasks;
+﻿
 using UnityEngine;
 
 namespace Stats.Code.Load
@@ -10,8 +9,7 @@ namespace Stats.Code.Load
         
         public void Load()
         {
-            characterStats.Load();
-            characterStats.TempToMain();
+            characterStats.Load(true);
         }
         
         // public IEnumerator QueryAsync () => UniTask.ToCoroutine(async () => 

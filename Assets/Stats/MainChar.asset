@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca52dbf23364c0195a883ddb196dccb, type: 3}
   m_Name: MainChar
   m_EditorClassIdentifier: 
-  main:
+  data:
     <Pk>k__BackingField: DefaultCharacterStats
-    <Health>k__BackingField: 0
+    <Health>k__BackingField: 50
   characterName:
-    value: 
+    value: DefaultCharacterStats
   health:
-    value: 0
+    value: 50

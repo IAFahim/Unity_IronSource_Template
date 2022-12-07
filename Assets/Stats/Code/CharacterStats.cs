@@ -1,6 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Script.DB;
+using SQLite;
 using Stats.Code.Default;
 using UniRx;
 using UnityEngine;
@@ -8,32 +9,42 @@ using UnityEngine;
 namespace Stats.Code
 {
     [CreateAssetMenu(fileName = "ScriptableObject", menuName = "CharacterStats", order = 0)]
+
     public class CharacterStats : ScriptableObject
     {
-        public DefaultCharacterStats main;
+        public DefaultCharacterStats data;
 
-        [Header("Temp")] public StringReactiveProperty characterName;
+        [Header("State")] public StringReactiveProperty characterName;
         public FloatReactiveProperty health;
 
         private void OnEnable()
         {
-            characterName = new StringReactiveProperty(main.Pk);
-            health = new FloatReactiveProperty(main.Health);
+            characterName = new StringReactiveProperty(data.Pk);
+            health = new FloatReactiveProperty(data.Health);
         }
 
-        public async void Load()
+        public void SyncState()
         {
-            this.main = await SqlDB.Load<DefaultCharacterStats>(this.main.Pk);
+            health.Value = data.Health;
         }
 
-        public void TempToMain()
+        public void Commit()
         {
-            this.health.Value = this.main.Health;
+            data.Health = health.Value;
         }
 
-        public async void Save()
+        public void Save()
         {
-            await SqlDB.Save(this);
+            SqlDB.Save(data).Forget();
+        }
+
+        public async void Load(bool syncState = true)
+        {
+            data = await SqlDB.Load<DefaultCharacterStats>(data.Pk);
+            if (syncState)
+            {
+                SyncState();
+            }
         }
     }
 }
