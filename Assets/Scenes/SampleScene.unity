@@ -209,7 +209,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 219788385}
-        m_TargetAssemblyTypeName: Script.UIListener.IncrementValue, Assembly-CSharp
+        m_TargetAssemblyTypeName: Script.IncrementAge, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -267,10 +267,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 219788380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712fc53d56264a2e864f146550e8c5e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b97a87f802148c7b83d437ae1f783c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
+  store: {fileID: 11400000, guid: f101d3c0978c0de42b476e96932d2f22, type: 2}
 --- !u!1 &292870648
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 292870654}
-        m_TargetAssemblyTypeName: Script.UIListener.DecrementValue, Assembly-CSharp
+        m_TargetAssemblyTypeName: Script.DecrementAge, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -415,10 +415,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 292870648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dcefef7bc934b3baef5826fd44db8d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 889f4a14f8c2483abee883bb6c24bf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStats: {fileID: 11400000, guid: ee90e64974dc86d4f8718971c071db61, type: 2}
+  store: {fileID: 11400000, guid: f101d3c0978c0de42b476e96932d2f22, type: 2}
 --- !u!1 &430550080
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +514,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &430550084
 MonoBehaviour:
