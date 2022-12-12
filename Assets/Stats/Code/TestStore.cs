@@ -1,9 +1,6 @@
-﻿using System;
-using Script.DB;
-using SQLite;
+﻿using Script.DB;
 using Stats.Code.Default;
 using UniRx;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 

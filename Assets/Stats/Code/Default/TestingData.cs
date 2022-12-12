@@ -11,7 +11,7 @@ namespace Stats.Code.Default
         [field:SerializeField]
         
         [PrimaryKey]
-        public string Pk { get; set; } = "Fahim";
+        public string Pk { get; set; }="Default";
         [field:SerializeField]
         public float Age{ get; set; } = 20;
 #if UNITY_EDITOR
