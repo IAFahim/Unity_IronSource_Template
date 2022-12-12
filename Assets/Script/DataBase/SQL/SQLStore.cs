@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Script.DB;
+using UnityEngine;
 
-namespace Script.DB
+namespace Script.DataBase.SQL
 {
     public abstract class UIStore<TD> : ScriptableObject where TD : ISqlPK, new()
     {
@@ -12,19 +13,26 @@ namespace Script.DB
         public abstract void OnEnable();
 
         /// <summary>
-        /// syncUI True to update the UI as soon as the data is loaded
+        /// Reactive Property Data = Data
         /// </summary>
-        /// <param name="setReactivePropertiesEqualToData"></param>
-        public async void Load(bool setReactivePropertiesEqualToData = true)
-        {
-            data = await SqlDB.Load<TD>(data.Pk);
-            if (setReactivePropertiesEqualToData) SetReactivePropertiesEqualToData();
-        }
+        public abstract void SetReactivePropertiesEqualToData();
+
 
         /// <summary>
         /// Data = Reactive Property Data
         /// </summary>
         public abstract void SetDataEqualToReactiveProperties();
+
+
+        /// <summary>
+        /// syncUI True to update the UI as soon as the data is loaded
+        /// </summary>
+        /// <param name="setReactivePropertiesEqualToData"></param>
+        public async void Load(bool setReactivePropertiesEqualToData = true)
+        {
+            data = await SqlDB.Instance.Load<TD>(data.Pk);
+            if (setReactivePropertiesEqualToData) SetReactivePropertiesEqualToData();
+        }
 
         ///  <summary>
         /// Save the data to the database
@@ -32,14 +40,9 @@ namespace Script.DB
         public void Save(bool setDataEqualToReactiveProperties = true)
         {
             if (setDataEqualToReactiveProperties) SetDataEqualToReactiveProperties();
-            SqlDB.Save(data).Forget();
+            SqlDB.Instance.Save(data).Forget();
         }
 
-
-        /// <summary>
-        /// Reactive Property Data = Data
-        /// </summary>
-        public abstract void SetReactivePropertiesEqualToData();
 
         /// <summary>
         /// Disable reactive listeners
