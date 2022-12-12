@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Stats.Code
 {
-    [CreateAssetMenu(fileName = "UIStore", menuName = "UIStore/Default", order = 0)]
+    [CreateAssetMenu(fileName = "TestStore", menuName = "UIStore/TestStore", order = 0)]
     public class TestStore : UIStore<TestingData>
     {
         public StringReactiveProperty characterName;
@@ -21,20 +21,25 @@ namespace Stats.Code
             age = new FloatReactiveProperty(data.Age);
         }
 
-        public override void Commit()
+        public override void SetDataEqualToReactiveProperties()
         {
             data.Pk = characterName.Value;
             data.Age = age.Value;
         }
 
-
-        public override void SyncUI()
+        
+        public override void SetReactivePropertiesEqualToData()
         {
             characterName.Value = data.Pk;
             age.Value = data.Age;
         }
+        
+        public override void OnDisable()
+        {
+            age.Dispose();
+        }
 
-
+        
 #if UNITY_EDITOR
         [CustomEditor(typeof(TestStore), true)]
         public class UIStoreEditor : UnityEditor.Editor
@@ -53,7 +58,7 @@ namespace Stats.Code
 
                 if (GUILayout.Button("Commit"))
                 {
-                    if (store != null) store.Commit();
+                    if (store != null) store.SetDataEqualToReactiveProperties();
                 }
 
                 if (GUILayout.Button("Save"))
