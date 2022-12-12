@@ -14,11 +14,11 @@ namespace Script.DB
         /// <summary>
         /// syncUI True to update the UI as soon as the data is loaded
         /// </summary>
-        /// <param name="setReactivePropertiesEqualsToData"></param>
-        public async void Load(bool setReactivePropertiesEqualsToData = true)
+        /// <param name="setReactivePropertiesEqualToData"></param>
+        public async void Load(bool setReactivePropertiesEqualToData = true)
         {
             data = await SqlDB.Load<TD>(data.Pk);
-            if (setReactivePropertiesEqualsToData) SetReactivePropertiesEqualToData();
+            if (setReactivePropertiesEqualToData) SetReactivePropertiesEqualToData();
         }
 
         /// <summary>
