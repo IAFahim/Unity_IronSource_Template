@@ -8,7 +8,7 @@ using UnityEngine;
 namespace DataBase.Test.SqlAndCloudCheck
 {
     [CreateAssetMenu(fileName = "SqlAndCloudCheck", menuName = "ScriptableObject/SqlAndCloudCheck", order = 0)]
-public class SqlAndCloudTest : ISqlDB<SqlAndCloudCheckData>
+public class SqlAndCloudTest : IFireBaseDB<SqlAndCloudCheckData>
     {
 
         public override void OnEnable()
@@ -36,8 +36,7 @@ public class SqlAndCloudTest : ISqlDB<SqlAndCloudCheckData>
     public class SqlAndCloudCheckData : IFirestoreDocumentString, ISqlPrimaryKey
     {
         [PrimaryKey][field:SerializeField] public string PrimaryKey { get; set; } = "Kamal";
-        [Ignore][field:SerializeField]public string DocumentPath { get; set; }
-        
+        [Ignore] [field: SerializeField] public string DocumentPath { get; set; } = "users/ac";
         [FirestoreProperty]
         [field:SerializeField]
         public int Age { get; set; }
