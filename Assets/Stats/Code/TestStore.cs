@@ -1,5 +1,4 @@
-﻿using Script.DataBase.SQL;
-using Script.DB;
+﻿using DataBase.SQL;
 using Stats.Code.Default;
 using UniRx;
 using UnityEditor;
@@ -7,28 +6,28 @@ using UnityEngine;
 
 namespace Stats.Code
 {
-    [CreateAssetMenu(fileName = "TestStore", menuName = "UIStore/TestStore", order = 0)]
-    public class TestStore : UIStore<TestingData>
+    [CreateAssetMenu(fileName = "TestStore", menuName = "ScriptableObject/DEP", order = 1)]
+    public class TestStore : ISqlDB<TestingData>
     {
         public StringReactiveProperty characterName;
         public FloatReactiveProperty age;
 
         public override void OnEnable()
         {
-            characterName = new StringReactiveProperty(data.Pk);
+            characterName = new StringReactiveProperty(data.PrimaryKey);
             age = new FloatReactiveProperty(data.Age);
         }
 
         public override void SetDataEqualToReactiveProperties()
         {
-            data.Pk = characterName.Value;
+            data.PrimaryKey = characterName.Value;
             data.Age = age.Value;
         }
 
         
         public override void SetReactivePropertiesEqualToData()
         {
-            characterName.Value = data.Pk;
+            characterName.Value = data.PrimaryKey;
             age.Value = data.Age;
         }
         

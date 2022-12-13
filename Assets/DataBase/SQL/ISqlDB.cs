@@ -1,9 +1,8 @@
-﻿using Script.DB;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Script.DataBase.SQL
+namespace DataBase.SQL
 {
-    public abstract class UIStore<TD> : ScriptableObject where TD : ISqlPK, new()
+    public abstract class ISqlDB<TD> : ScriptableObject where TD : ISqlPrimaryKey, new()
     {
         public TD data;
 
@@ -30,7 +29,7 @@ namespace Script.DataBase.SQL
         /// <param name="setReactivePropertiesEqualToData"></param>
         public async void Load(bool setReactivePropertiesEqualToData = true)
         {
-            data = await SqlDB.Instance.Load<TD>(data.Pk);
+            data = await SqlDB.Instance.Load<TD>(data.PrimaryKey);
             if (setReactivePropertiesEqualToData) SetReactivePropertiesEqualToData();
         }
 
@@ -39,7 +38,9 @@ namespace Script.DataBase.SQL
         /// </summary>
         public void Save(bool setDataEqualToReactiveProperties = true)
         {
+            
             if (setDataEqualToReactiveProperties) SetDataEqualToReactiveProperties();
+            Debug.Log("Saving: "+data);
             SqlDB.Instance.Save(data).Forget();
         }
 

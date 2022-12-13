@@ -1,6 +1,6 @@
 ﻿using System;
+using DataBase.SQL;
 using Firebase.Firestore;
-using Script.DB;
 using SQLite;
 using UnityEngine;
 
@@ -8,9 +8,9 @@ namespace Stats.Code.Default
 {
     [Serializable]
     [FirestoreData]
-    public partial class TestingData : ISqlPK
+    public class TestingData : ISqlPrimaryKey
     {
-        [field: SerializeField] [PrimaryKey][FirestoreProperty] public string Pk { get; set; } = "Default";
+        [field: SerializeField] public string PrimaryKey { get; set; } = "Default";
         [field: SerializeField][FirestoreProperty] public float Age { get; set; } = 20;
 #if UNITY_EDITOR
         [Multiline] [SerializeField] private string devDescription = "";

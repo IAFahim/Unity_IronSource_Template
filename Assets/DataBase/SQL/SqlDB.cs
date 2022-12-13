@@ -3,16 +3,17 @@ using Cysharp.Threading.Tasks;
 using SQLite;
 using UnityEngine;
 
-namespace Script.DataBase.SQL
+namespace DataBase.SQL
 {
-    public class SqlDB 
+    public class SqlDB
     {
         public static SQLiteAsyncConnection DB;
         private static SqlDB _instance;
         public static SqlDB Instance => _instance ??= new SqlDB();
+
         private SqlDB()
         {
-            var path = Path.Combine(Application.persistentDataPath, "DataBase.db");
+            var path = Path.Combine(Application.persistentDataPath, "SqLite.db");
             DB = new SQLiteAsyncConnection(path);
         }
 
@@ -20,12 +21,11 @@ namespace Script.DataBase.SQL
         {
             await DB.CreateTableAsync<T>();
             await DB.InsertOrReplaceAsync(item);
-            
         }
 
-        public async UniTask<T> Load<T>(object pk) where T : new()
+        public async UniTask<T> Load<T>(object item) where T : new()
         {
-            return await DB.GetAsync<T>(pk);
+            return await DB.GetAsync<T>(item);
         }
     }
 }
